@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Direct Post Modal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="direct-post-modal.css">
+    <style>
+        body {
+            padding: 50px;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-card {
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #5b5fff;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .test-card:hover {
+            background: #f0f0ff;
+            transform: translateY(-2px);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Direct Post Modal Test</h1>
+        <p>Click on any card below to test the modal functionality</p>
+        
+        <div class="status" id="status">
+            Status: Waiting for interaction...
+        </div>
+        
+        <h2>Test Cards</h2>
+        
+        <div class="test-card social-card" data-platform="instagram">
+            <h3>📷 Instagram</h3>
+            <p>Click to open Instagram modal</p>
+        </div>
+        
+        <div class="test-card social-card" data-platform="twitter">
+            <h3>🐦 Twitter</h3>
+            <p>Click to open Twitter modal</p>
+        </div>
+        
+        <div class="test-card social-card" data-platform="linkedin">
+            <h3>💼 LinkedIn</h3>
+            <p>Click to open LinkedIn modal</p>
+        </div>
+    </div>
+
+    <!-- Instagram Modal -->
+    <div id="instagramModal" class="direct-post-modal">
+      <div class="direct-post-modal-container">
+        <div class="direct-post-modal-header">
+          <div class="direct-post-modal-title-wrapper">
+            <div class="direct-post-modal-platform-icon instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <circle cx="17.5" cy="6.5" r="1.5"/>
+              </svg>
+            </div>
+            <h2 class="direct-post-modal-title">Post to Instagram</h2>
+          </div>
+          <button class="direct-post-modal-close" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="direct-post-modal-body">
+          <div class="direct-post-upload-section">
+            <label class="direct-post-upload-label">Upload Image</label>
+            <div class="direct-post-upload-zone">
+              <svg class="direct-post-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <p class="direct-post-upload-text">Drop your image here</p>
+              <p class="direct-post-upload-hint">or click to browse</p>
+              <button type="button" class="direct-post-upload-btn">Choose File</button>
+              <input type="file" id="instagramFileInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="direct-post-image-preview">
+              <img src="" alt="Preview">
+              <button class="direct-post-remove-image" aria-label="Remove image">×</button>
+            </div>
+          </div>
+          <div class="direct-post-caption-section">
+            <label class="direct-post-caption-label">Caption</label>
+            <div class="direct-post-caption-wrapper">
+              <textarea class="direct-post-caption-input" placeholder="Write your Instagram caption..." maxlength="2200"></textarea>
+              <span class="direct-post-caption-counter">0/2200</span>
+            </div>
+          </div>
+          <div class="direct-post-schedule-section">
+            <div class="direct-post-schedule-toggle">
+              <div class="direct-post-toggle-switch">
+                <div class="direct-post-toggle-slider"></div>
+              </div>
+              <span class="direct-post-toggle-label">Schedule for later</span>
+            </div>
+            <div class="direct-post-schedule-options">
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Date</label>
+                <input type="date" class="direct-post-input direct-post-date-input">
+              </div>
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Time</label>
+                <input type="time" class="direct-post-input direct-post-time-input">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="direct-post-modal-footer">
+          <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+          <button class="direct-post-btn direct-post-btn-submit">
+            <span>Post Now</span>
+            <div class="direct-post-loading"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Twitter Modal -->
+    <div id="twitterModal" class="direct-post-modal">
+      <div class="direct-post-modal-container">
+        <div class="direct-post-modal-header">
+          <div class="direct-post-modal-title-wrapper">
+            <div class="direct-post-modal-platform-icon twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            <h2 class="direct-post-modal-title">Post to Twitter</h2>
+          </div>
+          <button class="direct-post-modal-close" aria-label="Close modal">×</button>
+        </div>
+        <div class="direct-post-modal-body">
+          <div class="direct-post-upload-section">
+            <label class="direct-post-upload-label">Upload Image</label>
+            <div class="direct-post-upload-zone">
+              <p class="direct-post-upload-text">Drop your image here</p>
+              <button type="button" class="direct-post-upload-btn">Choose File</button>
+              <input type="file" id="twitterFileInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="direct-post-image-preview">
+              <img src="" alt="Preview">
+              <button class="direct-post-remove-image">×</button>
+            </div>
+          </div>
+          <div class="direct-post-caption-section">
+            <label class="direct-post-caption-label">Tweet Text</label>
+            <div class="direct-post-caption-wrapper">
+              <textarea class="direct-post-caption-input" placeholder="What's happening?" maxlength="280"></textarea>
+              <span class="direct-post-caption-counter">0/280</span>
+            </div>
+          </div>
+          <div class="direct-post-schedule-section">
+            <div class="direct-post-schedule-toggle">
+              <div class="direct-post-toggle-switch">
+                <div class="direct-post-toggle-slider"></div>
+              </div>
+              <span class="direct-post-toggle-label">Schedule for later</span>
+            </div>
+            <div class="direct-post-schedule-options">
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Date</label>
+                <input type="date" class="direct-post-input direct-post-date-input">
+              </div>
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Time</label>
+                <input type="time" class="direct-post-input direct-post-time-input">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="direct-post-modal-footer">
+          <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+          <button class="direct-post-btn direct-post-btn-submit">
+            <span>Tweet Now</span>
+            <div class="direct-post-loading"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LinkedIn Modal -->
+    <div id="linkedinModal" class="direct-post-modal">
+      <div class="direct-post-modal-container">
+        <div class="direct-post-modal-header">
+          <div class="direct-post-modal-title-wrapper">
+            <div class="direct-post-modal-platform-icon linkedin">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <h2 class="direct-post-modal-title">Post to LinkedIn</h2>
+          </div>
+          <button class="direct-post-modal-close">×</button>
+        </div>
+        <div class="direct-post-modal-body">
+          <div class="direct-post-upload-section">
+            <label class="direct-post-upload-label">Upload Image</label>
+            <div class="direct-post-upload-zone">
+              <p class="direct-post-upload-text">Drop your image here</p>
+              <button type="button" class="direct-post-upload-btn">Choose File</button>
+              <input type="file" id="linkedinFileInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="direct-post-image-preview">
+              <img src="" alt="Preview">
+              <button class="direct-post-remove-image">×</button>
+            </div>
+          </div>
+          <div class="direct-post-caption-section">
+            <label class="direct-post-caption-label">Post Content</label>
+            <div class="direct-post-caption-wrapper">
+              <textarea class="direct-post-caption-input" placeholder="Share your professional update..." maxlength="2200"></textarea>
+              <span class="direct-post-caption-counter">0/2200</span>
+            </div>
+          </div>
+          <div class="direct-post-schedule-section">
+            <div class="direct-post-schedule-toggle">
+              <div class="direct-post-toggle-switch">
+                <div class="direct-post-toggle-slider"></div>
+              </div>
+              <span class="direct-post-toggle-label">Schedule for later</span>
+            </div>
+            <div class="direct-post-schedule-options">
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Date</label>
+                <input type="date" class="direct-post-input direct-post-date-input">
+              </div>
+              <div class="direct-post-input-group">
+                <label class="direct-post-input-label">Time</label>
+                <input type="time" class="direct-post-input direct-post-time-input">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="direct-post-modal-footer">
+          <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+          <button class="direct-post-btn direct-post-btn-submit">
+            <span>Post Now</span>
+            <div class="direct-post-loading"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="direct-post-modal.js"></script>
+    <script>
+        // Update status display
+        const originalLog = console.log;
+        const originalError = console.error;
+        const statusDiv = document.getElementById('status');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            statusDiv.innerHTML += '<br>' + args.join(' ');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            statusDiv.innerHTML += '<br><span style="color: red;">ERROR: ' + args.join(' ') + '</span>';
+        };
+    </script>
+</body>
+</html>
+

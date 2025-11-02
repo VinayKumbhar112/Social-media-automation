@@ -1,0 +1,330 @@
+<!-- ============================================
+     DIRECT POST MODALS
+     Insert this code before the closing </body> tag in index.html
+     ============================================ -->
+
+<!-- Instagram Modal -->
+<div id="instagramModal" class="direct-post-modal">
+  <div class="direct-post-modal-container">
+    <!-- Header -->
+    <div class="direct-post-modal-header">
+      <div class="direct-post-modal-title-wrapper">
+        <div class="direct-post-modal-platform-icon instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <circle cx="17.5" cy="6.5" r="1.5"/>
+          </svg>
+        </div>
+        <h2 class="direct-post-modal-title">Post to Instagram</h2>
+      </div>
+      <button class="direct-post-modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="direct-post-modal-body">
+      <!-- Upload Section -->
+      <div class="direct-post-upload-section">
+        <label class="direct-post-upload-label">Upload Image</label>
+        <div class="direct-post-upload-zone">
+          <svg class="direct-post-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p class="direct-post-upload-text">Drop your image here</p>
+          <p class="direct-post-upload-hint">or click to browse</p>
+          <button type="button" class="direct-post-upload-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Choose File
+          </button>
+          <input type="file" id="instagramFileInput" accept="image/*" style="display: none;">
+        </div>
+        
+        <!-- Image Preview -->
+        <div class="direct-post-image-preview">
+          <img src="" alt="Preview">
+          <button class="direct-post-remove-image" aria-label="Remove image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Caption Section -->
+      <div class="direct-post-caption-section">
+        <label class="direct-post-caption-label">Caption</label>
+        <div class="direct-post-caption-wrapper">
+          <textarea 
+            class="direct-post-caption-input" 
+            placeholder="Write your Instagram caption..."
+            maxlength="2200"
+          ></textarea>
+          <span class="direct-post-caption-counter">0/2200</span>
+        </div>
+      </div>
+
+      <!-- Schedule Section -->
+      <div class="direct-post-schedule-section">
+        <div class="direct-post-schedule-toggle">
+          <div class="direct-post-toggle-switch">
+            <div class="direct-post-toggle-slider"></div>
+          </div>
+          <span class="direct-post-toggle-label">Schedule for later</span>
+        </div>
+        
+        <div class="direct-post-schedule-options">
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Date</label>
+            <input type="date" class="direct-post-input direct-post-date-input">
+          </div>
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Time</label>
+            <input type="time" class="direct-post-input direct-post-time-input">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="direct-post-modal-footer">
+      <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+      <button class="direct-post-btn direct-post-btn-submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13"></path>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+        </svg>
+        <span>Post Now</span>
+        <div class="direct-post-loading"></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Twitter Modal -->
+<div id="twitterModal" class="direct-post-modal">
+  <div class="direct-post-modal-container">
+    <!-- Header -->
+    <div class="direct-post-modal-header">
+      <div class="direct-post-modal-title-wrapper">
+        <div class="direct-post-modal-platform-icon twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        <h2 class="direct-post-modal-title">Post to Twitter</h2>
+      </div>
+      <button class="direct-post-modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="direct-post-modal-body">
+      <!-- Upload Section -->
+      <div class="direct-post-upload-section">
+        <label class="direct-post-upload-label">Upload Image</label>
+        <div class="direct-post-upload-zone">
+          <svg class="direct-post-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p class="direct-post-upload-text">Drop your image here</p>
+          <p class="direct-post-upload-hint">or click to browse</p>
+          <button type="button" class="direct-post-upload-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Choose File
+          </button>
+          <input type="file" id="twitterFileInput" accept="image/*" style="display: none;">
+        </div>
+        
+        <!-- Image Preview -->
+        <div class="direct-post-image-preview">
+          <img src="" alt="Preview">
+          <button class="direct-post-remove-image" aria-label="Remove image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tweet Text Section -->
+      <div class="direct-post-caption-section">
+        <label class="direct-post-caption-label">Tweet Text</label>
+        <div class="direct-post-caption-wrapper">
+          <textarea 
+            class="direct-post-caption-input" 
+            placeholder="What's happening?"
+            maxlength="280"
+          ></textarea>
+          <span class="direct-post-caption-counter">0/280</span>
+        </div>
+      </div>
+
+      <!-- Schedule Section -->
+      <div class="direct-post-schedule-section">
+        <div class="direct-post-schedule-toggle">
+          <div class="direct-post-toggle-switch">
+            <div class="direct-post-toggle-slider"></div>
+          </div>
+          <span class="direct-post-toggle-label">Schedule for later</span>
+        </div>
+        
+        <div class="direct-post-schedule-options">
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Date</label>
+            <input type="date" class="direct-post-input direct-post-date-input">
+          </div>
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Time</label>
+            <input type="time" class="direct-post-input direct-post-time-input">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="direct-post-modal-footer">
+      <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+      <button class="direct-post-btn direct-post-btn-submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13"></path>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+        </svg>
+        <span>Tweet Now</span>
+        <div class="direct-post-loading"></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- LinkedIn Modal -->
+<div id="linkedinModal" class="direct-post-modal">
+  <div class="direct-post-modal-container">
+    <!-- Header -->
+    <div class="direct-post-modal-header">
+      <div class="direct-post-modal-title-wrapper">
+        <div class="direct-post-modal-platform-icon linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <h2 class="direct-post-modal-title">Post to LinkedIn</h2>
+      </div>
+      <button class="direct-post-modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="direct-post-modal-body">
+      <!-- Upload Section -->
+      <div class="direct-post-upload-section">
+        <label class="direct-post-upload-label">Upload Image</label>
+        <div class="direct-post-upload-zone">
+          <svg class="direct-post-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p class="direct-post-upload-text">Drop your image here</p>
+          <p class="direct-post-upload-hint">or click to browse</p>
+          <button type="button" class="direct-post-upload-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Choose File
+          </button>
+          <input type="file" id="linkedinFileInput" accept="image/*" style="display: none;">
+        </div>
+        
+        <!-- Image Preview -->
+        <div class="direct-post-image-preview">
+          <img src="" alt="Preview">
+          <button class="direct-post-remove-image" aria-label="Remove image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Caption Section -->
+      <div class="direct-post-caption-section">
+        <label class="direct-post-caption-label">Post Content</label>
+        <div class="direct-post-caption-wrapper">
+          <textarea 
+            class="direct-post-caption-input" 
+            placeholder="Share your professional update..."
+            maxlength="2200"
+          ></textarea>
+          <span class="direct-post-caption-counter">0/2200</span>
+        </div>
+      </div>
+
+      <!-- Schedule Section -->
+      <div class="direct-post-schedule-section">
+        <div class="direct-post-schedule-toggle">
+          <div class="direct-post-toggle-switch">
+            <div class="direct-post-toggle-slider"></div>
+          </div>
+          <span class="direct-post-toggle-label">Schedule for later</span>
+        </div>
+        
+        <div class="direct-post-schedule-options">
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Date</label>
+            <input type="date" class="direct-post-input direct-post-date-input">
+          </div>
+          <div class="direct-post-input-group">
+            <label class="direct-post-input-label">Time</label>
+            <input type="time" class="direct-post-input direct-post-time-input">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="direct-post-modal-footer">
+      <button class="direct-post-btn direct-post-btn-cancel">Cancel</button>
+      <button class="direct-post-btn direct-post-btn-submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13"></path>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+        </svg>
+        <span>Post Now</span>
+        <div class="direct-post-loading"></div>
+      </button>
+    </div>
+  </div>
+</div>
+

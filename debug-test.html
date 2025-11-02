@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - Single Ad Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .test-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .test-btn:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-card">
+        <h1>🔍 Debug Test - Single Ad Generator</h1>
+        <p>This page will help us debug why the Single Ad Generator isn't opening.</p>
+        
+        <div id="status"></div>
+        
+        <h2>Test 1: Direct Navigation</h2>
+        <button class="test-btn" onclick="test1()">
+            Test Direct Navigation to simple-ad.html
+        </button>
+        
+        <h2>Test 2: Check File Exists</h2>
+        <button class="test-btn" onclick="test2()">
+            Check if simple-ad.html exists
+        </button>
+        
+        <h2>Test 3: Simulate Click Handler</h2>
+        <button class="test-btn" onclick="test3()">
+            Simulate QuickActionsManager Click
+        </button>
+        
+        <h2>Test 4: Open in New Tab</h2>
+        <button class="test-btn" onclick="test4()">
+            Open simple-ad.html in New Tab
+        </button>
+        
+        <h2>Test 5: Check Console</h2>
+        <button class="test-btn" onclick="test5()">
+            Log Debug Info to Console
+        </button>
+        
+        <div class="test-card" style="background: #fff3cd; border: 2px solid #ffc107;">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Click each test button above</li>
+                <li>Watch for status messages</li>
+                <li>Check browser console (F12) for errors</li>
+                <li>Report which test works/fails</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        
+        function showStatus(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = message;
+            statusDiv.appendChild(div);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                div.remove();
+            }, 5000);
+        }
+        
+        function test1() {
+            showStatus('Test 1: Attempting direct navigation...', 'info');
+            console.log('Test 1: Direct navigation to simple-ad.html');
+            
+            setTimeout(() => {
+                window.location.href = 'simple-ad.html';
+            }, 1000);
+        }
+        
+        async function test2() {
+            showStatus('Test 2: Checking if file exists...', 'info');
+            console.log('Test 2: Checking file existence');
+            
+            try {
+                const response = await fetch('simple-ad.html', { method: 'HEAD' });
+                if (response.ok) {
+                    showStatus('✅ simple-ad.html exists!', 'success');
+                    console.log('File exists:', response);
+                } else {
+                    showStatus('❌ simple-ad.html not found! Status: ' + response.status, 'error');
+                    console.error('File not found:', response);
+                }
+            } catch (error) {
+                showStatus('❌ Error checking file: ' + error.message, 'error');
+                console.error('Error:', error);
+            }
+        }
+        
+        function test3() {
+            showStatus('Test 3: Simulating click handler...', 'info');
+            console.log('Test 3: Simulating QuickActionsManager click');
+            
+            // Simulate the exact code from script.js
+            const action = 'generate-ad';
+            console.log('Action:', action);
+            
+            if (action === 'generate-ad') {
+                console.log('Condition matched! Navigating...');
+                showStatus('✅ Condition matched! Navigating in 1 second...', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = 'simple-ad.html';
+                }, 1000);
+            } else {
+                showStatus('❌ Condition did not match!', 'error');
+                console.error('Condition failed');
+            }
+        }
+        
+        function test4() {
+            showStatus('Test 4: Opening in new tab...', 'info');
+            console.log('Test 4: Opening in new tab');
+            
+            const newWindow = window.open('simple-ad.html', '_blank');
+            if (newWindow) {
+                showStatus('✅ New tab opened!', 'success');
+            } else {
+                showStatus('❌ Popup blocked! Check browser settings.', 'error');
+            }
+        }
+        
+        function test5() {
+            showStatus('Test 5: Check console for debug info', 'info');
+            
+            console.log('=== DEBUG INFO ===');
+            console.log('Current URL:', window.location.href);
+            console.log('Current Path:', window.location.pathname);
+            console.log('Base URL:', window.location.origin);
+            console.log('Target URL:', window.location.origin + '/simple-ad.html');
+            
+            // Check if script.js is loaded
+            console.log('QuickActionsManager exists:', typeof QuickActionsManager !== 'undefined');
+            
+            // Check if action cards exist
+            const actionCards = document.querySelectorAll('.action-card');
+            console.log('Action cards found:', actionCards.length);
+            
+            // Check for the specific generate-ad card
+            const generateAdCard = document.querySelector('[data-action="generate-ad"]');
+            console.log('Generate Ad card exists:', !!generateAdCard);
+            
+            console.log('=== END DEBUG INFO ===');
+            
+            showStatus('✅ Debug info logged to console. Press F12 to view.', 'success');
+        }
+        
+        // Auto-run test 2 on page load
+        window.addEventListener('load', () => {
+            console.log('Debug page loaded');
+            test2();
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Upload Button</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .status {
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔍 Upload Button Visibility Test</h1>
+        
+        <div class="status">
+            ✅ This page tests if the upload button is visible with the current CSS
+        </div>
+
+        <div class="test-section">
+            <h2>Test 1: Upload Button (Standalone)</h2>
+            <button class="upload-btn" id="uploadFileBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="12 19 12 5"></polyline>
+                    <polyline points="19 12 12 5 5 12"></polyline>
+                </svg>
+                Upload File
+            </button>
+            <p style="margin-top: 1rem; color: #666;">
+                ☝️ Can you see the purple "Upload File" button above?
+            </p>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 2: Upload Button in Batch Header (Full Layout)</h2>
+            <div class="batch-header">
+                <div class="batch-title">
+                    <div class="batch-icon-wrapper gradient-primary">
+                        <svg class="batch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="12 5 12 19"></polyline>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Batch Upload</h2>
+                        <p class="batch-subtitle">
+                            Upload multiple campaigns at once using Excel files.
+                        </p>
+                    </div>
+                </div>
+                <button class="upload-btn" id="uploadFileBtn2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="12 19 12 5"></polyline>
+                        <polyline points="19 12 12 5 5 12"></polyline>
+                    </svg>
+                    Upload File
+                </button>
+            </div>
+            <p style="color: #666;">
+                ☝️ Can you see the purple "Upload File" button on the right side?
+            </p>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 3: Button Properties Check</h2>
+            <button class="upload-btn" id="testBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="12 19 12 5"></polyline>
+                    <polyline points="19 12 12 5 5 12"></polyline>
+                </svg>
+                Upload File
+            </button>
+            <div id="buttonInfo" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 4px; font-family: monospace; font-size: 12px;"></div>
+        </div>
+
+        <div class="test-section" style="background: #fff3cd; border-color: #ffc107;">
+            <h2>📋 Instructions</h2>
+            <ol style="line-height: 1.8;">
+                <li>Check if you can see the purple "Upload File" buttons above</li>
+                <li>Check the button properties in Test 3</li>
+                <li>Try resizing your browser window (make it smaller/larger)</li>
+                <li>If you can see the buttons here but not on the dashboard, try hard refreshing the dashboard (Ctrl+Shift+R)</li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <a href="index.html" style="display: inline-block; padding: 12px 24px; background: #667eea; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                ← Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Check button properties
+        window.addEventListener('load', () => {
+            const btn = document.getElementById('testBtn');
+            const info = document.getElementById('buttonInfo');
+            
+            const styles = window.getComputedStyle(btn);
+            
+            const properties = {
+                'Display': styles.display,
+                'Visibility': styles.visibility,
+                'Opacity': styles.opacity,
+                'Width': styles.width,
+                'Height': styles.height,
+                'Background': styles.background.substring(0, 50) + '...',
+                'Position': styles.position,
+                'Z-Index': styles.zIndex
+            };
+            
+            let html = '<strong>Button Computed Styles:</strong><br><br>';
+            for (const [key, value] of Object.entries(properties)) {
+                html += `<strong>${key}:</strong> ${value}<br>`;
+            }
+            
+            info.innerHTML = html;
+            
+            console.log('Upload button test loaded');
+            console.log('Button element:', btn);
+            console.log('Computed styles:', styles);
+        });
+    </script>
+</body>
+</html>
+

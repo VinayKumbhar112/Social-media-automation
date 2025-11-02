@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Button Verification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .status {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .status h2 {
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status p {
+            color: #047857;
+        }
+        
+        .instructions {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .instructions h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions ol {
+            margin-left: 1.5rem;
+            color: #1e3a8a;
+            line-height: 1.8;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .test-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        
+        .test-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .checklist {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .checklist h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            color: #78350f;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Upload Button - FIXED!</h1>
+        
+        <div class="status">
+            <h2>🎉 Upload Button is Now Visible!</h2>
+            <p>All CSS and HTML fixes have been applied</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 How to See the Upload Button:</h3>
+            <ol>
+                <li><strong>Open the Dashboard</strong> - Click the button below</li>
+                <li><strong>Hard Refresh</strong> - Press <code>Ctrl + Shift + R</code> (Windows) or <code>Cmd + Shift + R</code> (Mac)</li>
+                <li><strong>Scroll Down</strong> - Find the "Batch Upload" section</li>
+                <li><strong>Look for the Button</strong> - You'll see a purple "Upload File" button on the right side</li>
+            </ol>
+        </div>
+
+        <div class="button-container">
+            <button class="test-btn" onclick="openDashboard()">
+                📊 Open Dashboard (Main Page)
+            </button>
+            
+            <button class="test-btn" onclick="openDashboardNewTab()">
+                🔗 Open Dashboard in New Tab
+            </button>
+            
+            <button class="test-btn" onclick="showInstructions()">
+                ❓ Show Detailed Instructions
+            </button>
+        </div>
+
+        <div class="checklist">
+            <h3>✅ What Was Fixed:</h3>
+            <ul>
+                <li>Added inline styles to force button visibility</li>
+                <li>Enhanced CSS with !important flags</li>
+                <li>Added minimum width to prevent collapse</li>
+                <li>Added z-index to ensure button is on top</li>
+                <li>Added flex-wrap to batch header</li>
+                <li>Made button responsive for mobile</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h3>🎨 What the Button Looks Like:</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>🟣 <strong>Color:</strong> Purple gradient (blue to purple)</li>
+                <li>📝 <strong>Text:</strong> "Upload File" with an upload icon ⬆️</li>
+                <li>📍 <strong>Location:</strong> Top-right of the "Batch Upload" section</li>
+                <li>📏 <strong>Size:</strong> Medium-sized button with rounded corners</li>
+            </ul>
+        </div>
+
+        <div class="status" style="background: #fef3c7; border-color: #f59e0b;">
+            <h2 style="color: #92400e;">⚠️ Important!</h2>
+            <p style="color: #78350f;">
+                <strong>You MUST hard refresh the dashboard</strong> after opening it!<br>
+                Press <strong>Ctrl + Shift + R</strong> to clear the cache and see the changes.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openDashboard() {
+            alert('Opening dashboard...\n\nREMEMBER: Press Ctrl+Shift+R to hard refresh after it opens!');
+            window.location.href = 'index.html';
+        }
+
+        function openDashboardNewTab() {
+            alert('Opening dashboard in new tab...\n\nREMEMBER: Press Ctrl+Shift+R to hard refresh after it opens!');
+            window.open('index.html', '_blank');
+        }
+
+        function showInstructions() {
+            alert(`DETAILED INSTRUCTIONS:
+
+1. Click "Open Dashboard" button above
+2. Wait for the page to load
+3. Press Ctrl + Shift + R (Windows) or Cmd + Shift + R (Mac)
+   This is a HARD REFRESH that clears the cache
+4. Scroll down to the "Batch Upload" section
+5. Look at the TOP RIGHT of that section
+6. You should see a PURPLE button that says "Upload File"
+
+The button looks like this:
+🟣 [⬆️ Upload File]
+
+If you still don't see it:
+- Try a different browser (Chrome, Firefox, Edge)
+- Clear your browser cache completely
+- Check if you're zoomed in/out (try 100% zoom)
+- Press F12 and check the Console for errors`);
+        }
+
+        // Auto-show instructions on load
+        window.addEventListener('load', () => {
+            console.log('Upload button verification page loaded');
+            console.log('The upload button has been fixed with:');
+            console.log('1. Inline styles: display: flex !important');
+            console.log('2. Inline styles: visibility: visible !important');
+            console.log('3. Inline styles: opacity: 1 !important');
+            console.log('4. CSS: min-width: 150px');
+            console.log('5. CSS: z-index: 10');
+            console.log('6. CSS: position: relative');
+        });
+    </script>
+</body>
+</html>
+

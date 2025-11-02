@@ -1,0 +1,99 @@
+/* File Upload Section Styles */
+.file-upload-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.upload-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.upload-separator::before,
+.upload-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.upload-separator span {
+    margin: 0 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.file-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.choose-file-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.choose-file-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.file-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.file-hint {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Drag and Drop Zone Modifications */
+.drag-drop-zone {
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: var(--background);
+}
+
+.drag-drop-zone.dragging {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.drag-drop-zone .upload-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.drag-drop-text {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}

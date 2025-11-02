@@ -1,0 +1,246 @@
+/* Transitions and Animations */
+
+/* Page Transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translate3d(0, 15px, 0);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-bounce);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translate3d(0, -15px, 0);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-bounce);
+}
+
+/* Element Transitions */
+.element-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.element-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-bounce);
+}
+
+.element-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.element-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-bounce);
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.2s var(--ease-bounce);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.hover-scale {
+  transition: transform 0.2s var(--ease-bounce);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow 0.2s var(--ease-out);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(var(--primary-blue-rgb), 0.4);
+}
+
+/* Click Effects */
+.click-shrink {
+  transition: transform 0.1s var(--ease-out);
+}
+
+.click-shrink:active {
+  transform: scale(0.97);
+}
+
+/* Focus Effects */
+.focus-ring {
+  transition: box-shadow 0.2s var(--ease-out);
+}
+
+.focus-ring:focus-visible {
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+/* Menu Animations */
+.menu-slide-down {
+  transform-origin: top;
+  transition: transform 0.2s var(--ease-bounce), opacity 0.2s var(--ease-out);
+}
+
+.menu-slide-down.hidden {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+/* Toast Animations */
+.toast-slide-in {
+  animation: toast-slide-in 0.3s var(--ease-bounce) forwards;
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-slide-out {
+  animation: toast-slide-out 0.3s var(--ease-bounce) forwards;
+}
+
+@keyframes toast-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s var(--ease-bounce), box-shadow 0.3s var(--ease-out);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button Effects */
+.button-press {
+  transition: transform 0.1s var(--ease-out);
+}
+
+.button-press:active {
+  transform: scale(0.95);
+}
+
+/* Pulse Animation */
+.pulse-animation {
+  animation: pulse 2s var(--ease-out) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-blue-rgb), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--primary-blue-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-blue-rgb), 0);
+  }
+}
+
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Fade Gradient */
+.fade-gradient {
+  position: relative;
+}
+
+.fade-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--bg-primary)
+  );
+  pointer-events: none;
+}

@@ -1,0 +1,626 @@
+/* ============================================
+   DIRECT POST MODAL STYLES
+   ============================================ */
+
+/* Modal Overlay */
+.direct-post-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.direct-post-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Container */
+.direct-post-modal-container {
+  background: var(--card-bg);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.direct-post-modal.active .direct-post-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+/* Modal Header */
+.direct-post-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.direct-post-modal-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.direct-post-modal-platform-icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direct-post-modal-platform-icon.twitter {
+  background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%);
+}
+
+.direct-post-modal-platform-icon.instagram {
+  background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%);
+}
+
+.direct-post-modal-platform-icon.linkedin {
+  background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
+}
+
+.direct-post-modal-platform-icon svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.direct-post-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.direct-post-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.direct-post-modal-close:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.direct-post-modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modal Body */
+.direct-post-modal-body {
+  padding: 28px;
+}
+
+/* Upload Section */
+.direct-post-upload-section {
+  margin-bottom: 24px;
+}
+
+.direct-post-upload-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.direct-post-upload-zone {
+  border: 2px dashed var(--border-primary);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.direct-post-upload-zone:hover {
+  border-color: var(--primary-blue);
+  background: rgba(91, 95, 255, 0.05);
+}
+
+.direct-post-upload-zone.dragging {
+  border-color: var(--primary-blue);
+  background: rgba(91, 95, 255, 0.1);
+  border-style: solid;
+}
+
+.direct-post-upload-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary-blue);
+  margin: 0 auto 12px;
+}
+
+.direct-post-upload-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.direct-post-upload-hint {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.direct-post-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.direct-post-upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(91, 95, 255, 0.3);
+}
+
+.direct-post-upload-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Image Preview */
+.direct-post-image-preview {
+  display: none;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.direct-post-image-preview.active {
+  display: block;
+}
+
+.direct-post-image-preview img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.direct-post-remove-image {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.direct-post-remove-image:hover {
+  background: rgba(239, 68, 68, 0.9);
+}
+
+.direct-post-remove-image svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Caption Section */
+.direct-post-caption-section {
+  margin-bottom: 24px;
+}
+
+.direct-post-caption-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.direct-post-caption-wrapper {
+  position: relative;
+}
+
+.direct-post-caption-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border: 1px solid var(--border-input);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.direct-post-caption-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(91, 95, 255, 0.1);
+}
+
+.direct-post-caption-counter {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  background: var(--bg-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Schedule Section */
+.direct-post-schedule-section {
+  margin-bottom: 24px;
+}
+
+.direct-post-schedule-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.direct-post-toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--border-primary);
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.direct-post-toggle-switch.active {
+  background: var(--primary-blue);
+}
+
+.direct-post-toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.direct-post-toggle-switch.active .direct-post-toggle-slider {
+  transform: translateX(20px);
+}
+
+.direct-post-toggle-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Schedule Options */
+.direct-post-schedule-options {
+  display: none;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  gap: 16px;
+}
+
+.direct-post-schedule-options.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.direct-post-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.direct-post-input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.direct-post-input {
+  padding: 10px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.direct-post-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(91, 95, 255, 0.1);
+}
+
+/* Modal Footer */
+.direct-post-modal-footer {
+  padding: 20px 28px;
+  border-top: 1px solid var(--border-primary);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.direct-post-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.direct-post-btn-cancel {
+  background: transparent;
+  border: 1px solid var(--border-input);
+  color: var(--text-secondary);
+}
+
+.direct-post-btn-cancel:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.direct-post-btn-submit {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #7c3aed 100%);
+  border: none;
+  color: white;
+}
+
+.direct-post-btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(91, 95, 255, 0.4);
+}
+
+.direct-post-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.direct-post-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Loading State */
+.direct-post-loading {
+  display: none;
+}
+
+.direct-post-loading.active {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: direct-post-spin 0.8s linear infinite;
+}
+
+@keyframes direct-post-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Dark Mode Support */
+body.dark-mode .direct-post-modal {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .direct-post-modal-container {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-modal-header {
+  border-bottom-color: #374151;
+}
+
+body.dark-mode .direct-post-modal-title {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-modal-close {
+  color: #9ca3af;
+}
+
+body.dark-mode .direct-post-modal-close:hover {
+  color: #f3f4f6;
+  background: #374151;
+}
+
+body.dark-mode .direct-post-upload-label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-upload-zone {
+  background: rgba(91, 95, 255, 0.05);
+  border-color: #374151;
+}
+
+body.dark-mode .direct-post-upload-zone:hover {
+  background: rgba(91, 95, 255, 0.1);
+  border-color: var(--primary-blue);
+}
+
+body.dark-mode .direct-post-upload-text {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-upload-hint {
+  color: #9ca3af;
+}
+
+body.dark-mode .direct-post-image-preview {
+  background: #111827;
+  border-color: #374151;
+}
+
+body.dark-mode .direct-post-remove-image {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .direct-post-caption-label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-caption-input {
+  background: #111827;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-caption-input:focus {
+  border-color: var(--primary-blue);
+  background: #0f1419;
+}
+
+body.dark-mode .direct-post-caption-input::placeholder {
+  color: #6b7280;
+}
+
+body.dark-mode .direct-post-char-counter {
+  color: #9ca3af;
+}
+
+body.dark-mode .direct-post-schedule-label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-toggle-label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-toggle-switch {
+  background: #374151;
+}
+
+body.dark-mode .direct-post-toggle-switch.active {
+  background: var(--primary-blue);
+}
+
+body.dark-mode .direct-post-schedule-options {
+  background: rgba(91, 95, 255, 0.05);
+  border-color: #374151;
+}
+
+body.dark-mode .direct-post-input-group label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-input-label {
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-input {
+  background: #111827;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-input:focus {
+  border-color: var(--primary-blue);
+  background: #0f1419;
+}
+
+body.dark-mode .direct-post-modal-footer {
+  border-top-color: #374151;
+}
+
+body.dark-mode .direct-post-btn-cancel {
+  background: #374151;
+  color: #f3f4f6;
+}
+
+body.dark-mode .direct-post-btn-cancel:hover {
+  background: #4b5563;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .direct-post-modal-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .direct-post-modal-header,
+  .direct-post-modal-body,
+  .direct-post-modal-footer {
+    padding: 20px;
+  }
+
+  .direct-post-schedule-options.active {
+    grid-template-columns: 1fr;
+  }
+
+  .direct-post-modal-footer {
+    flex-direction: column;
+  }
+
+  .direct-post-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
