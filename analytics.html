@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analytics - AutoMatter</title>
   <link rel="stylesheet" href="analytics.css">
+  <link rel="stylesheet" href="enhanced-features.css">
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -14,12 +15,10 @@
     <aside class="sidebar" id="sidebar">
       <!-- Logo Section -->
       <div class="sidebar-logo">
-        <div class="logo-icon-wrapper">
-          <div class="logo-icon">AM</div>
-        </div>
-        <div class="logo-text">
-          <h1 class="logo-title">AutoMatter</h1>
-          <p class="logo-subtitle">AI-Powered</p>
+       
+        <div class="logo-text" style="margin-left: 32px;">
+          <h1 class="logo-title">Automatter</h1>
+          <p class="logo-subtitle">Professional Suite </p>
         </div>
       </div>
 
@@ -78,13 +77,13 @@
       <!-- Header -->
       <header class="header">
         <div class="header-left">
-          <h1 class="page-title">Analytics Dashboard</h1>
+          <h1 class="page-title">Analytics</h1>
           <p class="page-subtitle">Track your social media performance</p>
         </div>
 
         <div class="header-right">
           <!-- Theme Toggle -->
-          <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+          <button class="theme-btn tooltip" id="themeToggle" data-tooltip="Toggle Dark Mode (Ctrl+Shift+D)" aria-label="Toggle theme">
             <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -282,6 +281,7 @@
   </div>
 
   <script src="analytics.js"></script>
+  <script src="enhanced-features.js"></script>
 </body>
 </html>
 

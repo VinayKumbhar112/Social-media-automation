@@ -636,21 +636,24 @@ class BatchUploadManager {
   }
 
   initializeUploadButton() {
-    if (this.uploadBtn) {
-      this.uploadBtn.addEventListener("click", () => {
-        this.handleUploadClick();
-      });
-    }
+    // DISABLED: This was causing the file picker to auto-open when clicking the upload button
+    // The batch-upload.js file now handles the upload button click and opens the modal properly
+    // if (this.uploadBtn) {
+    //   this.uploadBtn.addEventListener("click", () => {
+    //     this.handleUploadClick();
+    //   });
+    // }
   }
 
   handleUploadClick() {
-    if (!authManager.user) {
-      authManager.showAuthModal(() => {
-        this.fileInput.click();
-      });
-      return;
-    }
-    this.fileInput.click();
+    // DISABLED: This was directly opening the file picker instead of the modal
+    // if (!authManager.user) {
+    //   authManager.showAuthModal(() => {
+    //     this.fileInput.click();
+    //   });
+    //   return;
+    // }
+    // this.fileInput.click();
   }
 
   initializeDragAndDrop() {
@@ -1035,7 +1038,7 @@ class SidebarManager {
     const routes = {
       dashboard: "index.html",
       "single-ad": "simple-ad.html",
-      schedule: "/schedule",
+      schedule: "#scheduleSection",
       analytics: "analytics.html",
       settings: "/settings",
     };
@@ -1049,6 +1052,16 @@ class SidebarManager {
         window.location.href = route;
       } else if (navId === "dashboard") {
         window.location.href = route;
+      } else if (navId === "schedule") {
+        // Scroll to schedule section on the same page
+        const scheduleSection = document.getElementById("scheduleSection");
+        if (scheduleSection) {
+          scheduleSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+          authManager.showToast("Viewing scheduled posts", "success");
+        }
       } else {
         authManager.showToast(`Navigating to ${navId}...`, "success");
         // Other routes would be implemented here

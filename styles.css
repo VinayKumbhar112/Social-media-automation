@@ -946,7 +946,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 32px;
   gap: 24px;
 }
@@ -1113,32 +1113,30 @@ body {
   color: var(--text-dark);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
+  top: 12px;
+  left: 12px;
 }
 
 /* Sun Icon (Light Mode) */
 .sun-icon {
   opacity: 1;
-  rotate: 0deg;
-  scale: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 body.dark-mode .sun-icon {
   opacity: 0;
-  rotate: -90deg;
-  scale: 0;
+  transform: rotate(-90deg) scale(0);
 }
 
 /* Moon Icon (Dark Mode) */
 .moon-icon {
   opacity: 0;
-  rotate: 90deg;
-  scale: 0;
+  transform: rotate(90deg) scale(0);
 }
 
 body.dark-mode .moon-icon {
   opacity: 1;
-  rotate: 0deg;
-  scale: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 /* User Avatar */

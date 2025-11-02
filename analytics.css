@@ -303,7 +303,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 32px;
   flex-wrap: wrap;
   gap: 20px;
@@ -368,6 +368,8 @@ body {
   color: var(--text-dark);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
+  top: 12px;
+  left: 12px;
 }
 
 .sun-icon {
